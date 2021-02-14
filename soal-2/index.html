@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Title Application</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./assets/style.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <script>
+            let status = 1
+            function myFunction() {
+                if (status === 1) {
+                    status = 2
+                    document.getElementById("txt_1").style.display="none"
+                    document.getElementById("txt_2").style.display="block"
+                    document.getElementById("txt_3").style.display="none"
+                    document.getElementById("action_1").style.display="grid"
+                    document.getElementById("action_2").style.display="grid"
+                }
+            }
+                        
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+
+            function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
+
+            function drop(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
+                document.getElementById("txt_1").style.display="none"
+                document.getElementById("txt_2").style.display="none"
+                document.getElementById("txt_3").style.display="block"
+                document.getElementById("action_1").style.display="none"
+                document.getElementById("action_2").style.display="none"
+            }
+        </script>
+    </head>
+    <body>
+        <!-- content -->
+        <div class="content">
+            <button type="button" class="btn" onclick="myFunction()">
+                <span 
+                    id="action_1"
+                    class="handler left" 
+                    draggable="true"
+                    ondragstart="drag(event)"
+                >
+                    <i class="fas fa-chevron-right"></i>
+                </span>
+                <span id="txt_1">Buy Now</span>
+                <span id="txt_2">Confirm</span>
+                <span id="txt_3">
+                    <i class="fas fa-check"></i>
+                    Done
+                </span>
+                <span class="handler right" id="action_2" ondrop="drop(event)" ondragover="allowDrop(event)"></span>
+            </button>
+        </div>
+        <!-- /content -->
+    </body>
+</html>

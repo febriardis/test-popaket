@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+}
+.content {
+    justify-content: center;
+    align-items: center;
+    height: 8;
+    display: flex;
+    height: calc(100vh - 50px);
+}
+
+.btn {
+    padding: 15px 45px;
+    background: #275EFE;
+    color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+}
+.btn:focus {
+    outline: none !important;
+    border: none;
+}
+
+.handler {
+    width: 25px;
+    height: 25px;
+    top: 10px;
+    font-size: 10px;
+    border-radius: 8px;
+    position: absolute;
+    border: 1px solid #ffffff;
+    display: grid;
+    align-items: center;
+}
+
+.left {
+    left: 12px;
+}
+
+.right {
+    right: 12px;
+    opacity: 0.40;
+}
+
+.handler > .handler {
+    top: 0;
+    left: 0;
+}
+
+#txt_2, #txt_3, #action_1, #action_2{
+    display: none;
+}
